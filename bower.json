@@ -1,0 +1,24 @@
+{
+  "name": "nacka_webbutik",
+  "authors": [
+    "OlaBKarlsson <ola.karlsson@nackademin.se>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "angular-animate": "^1.6.3",
+    "angular-bootstrap": "^2.5.0"   
+  }
+}

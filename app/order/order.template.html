@@ -1,0 +1,75 @@
+<div class="row" style="margin-top: 30px;">
+    <div class="col-md-9 ">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <address>
+                        <strong>Fakturaadress</strong>
+                        <br>
+                        {{name}}
+                        <br>
+                        {{address}}, {{city}}
+                        <br>
+                        <abbr title="Mail">Email:</abbr> {{mail}}
+                    </address>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                    <p>
+                        <em ng-app>{{date|date:'yyyy-MM-dd'}}</em>
+                    </p>
+                    <p>
+                        <em>Order #: 34522677W</em>
+                    </p>
+                </div>
+            </div>
+                    <h3 class="text-center"><strong>Kundvagn <span id="cart" class="glyphicon glyphicon-shopping-cart"></span></strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td><strong>Varor</strong></td>
+                                    <td class="text-center"><strong>Pris (kr)</strong></td>
+                                    <td class="text-center"><strong>Kvantitet</strong></td>
+                                    <td class="text-right"><strong>Totalt pris (kr)</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="product in products">
+                                    <td>{{product.name}}</td>
+                                    <td class="text-center">{{product.price}}</td>
+                                    <td class="text-center">{{product.quantity}}</td>
+                                    <td class="text-right">{{product.price*product.quantity}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="highrow"></td>
+                                    <td class="highrow"></td>
+                                    <td class="highrow text-center"><strong>Total</strong></td>
+                                    <td class="highrow text-right">{{ getTotal() | currency:"SEK"}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow text-center"><strong>Frakt</strong></td>
+                                    <td class="emptyrow text-right">{{shipping|currency:"SEK"}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow text-center"><strong>Totalt pris</strong></td>
+                                    <td class="emptyrow text-right">{{ getTotal() +shipping | currency:"SEK"}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-success" style="float:right;" ng-click="putOrder()">Beställ</button>
+            <a href="/products"><button type="button" class="btn btn-info" style="float:right;margin-right:10px;">Tillbaka</button></a>
+        </div>
+    </div>
+</div>
+

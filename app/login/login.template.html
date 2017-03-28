@@ -1,0 +1,19 @@
+<div class="row">
+    <form style="padding: 25px 500px 25px 25px" name="contactform" class="form-online" novalidate>
+        <div class="form-group" ng-class="{ 'has-error': contactform.email.$invalid && contactform.email.$touched}">
+            <label class="control-label" for="email">E-post</label>
+            <input type="email" class="form-control" name="email" placeholder="Email" ng-model="login.email" required>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': contactform.password.$invalid && contactform.password.$touched}">
+            <label class="control-label" for="exampleInputEmail1">Lösenord</label>
+            <input type="password" class="form-control" name="password" placeholder="Lösenord" ng-model="login.password" required>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <p class="text-danger">{{text}}</p>
+                <button type="submit" ng-disabled="contactform.$invalid" class="btn btn-primary" ng-click="getLogin(contactform)">Logga in</button>
+                <a class="btn btn-primary btn-danger" href="/">Avbryt</a>
+            </div>
+        </div>
+    </form>
+</div>

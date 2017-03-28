@@ -1,0 +1,46 @@
+<div class="row" style="margin-top: 30px;">
+    <div class="col-md-9 ">
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <td><strong>Dina beställda varor</strong></td>
+                            <td class="text-center"><strong>Pris (kr)</strong></td>
+                            <td class="text-center"><strong>Kvantitet</strong></td>
+                            <td class="text-right"><strong>Totalt pris (kr)</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in orders">
+                            <td>{{product.name}}</td>
+                            <td class="text-center">{{product.price}}</td>
+                            <td class="text-center">{{product.quantity}}</td>
+                            <td class="text-right">{{product.price*product.quantity}}</td>
+                        </tr>
+                        <tr>
+                            <td class="highrow"></td>
+                            <td class="highrow"></td>
+                            <td class="highrow text-center"><strong>Total</strong></td>
+                            <td class="highrow text-right">{{ getTotal() | currency:"SEK"}}</td>
+                        </tr>
+                        <tr>
+                            <td class="emptyrow"></td>
+                            <td class="emptyrow"></td>
+                            <td class="emptyrow text-center"><strong>Frakt</strong></td>
+                            <td class="emptyrow text-right">{{shipping|currency:"SEK"}}</td>
+                        </tr>
+                        <tr>
+                            <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+                            <td class="emptyrow"></td>
+                            <td class="emptyrow text-center"><strong>Totalt pris</strong></td>
+                            <td class="emptyrow text-right">{{ getTotal() +shipping | currency:"SEK"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

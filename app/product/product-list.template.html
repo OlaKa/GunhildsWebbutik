@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col-md-9 ">
+        <h2>{{produkter}}<a href="#"><button type="button" class="btn btn-success" style="float: right;" ng-click="isLoggedIn()">Till kassan >></button></a></h2>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr id="bhead">
+                    <th>Produkt</th>
+                    <th>Namn och beskrivning</th>
+                    <th>Pris</th>
+                    <th>Lagerstatus</th>
+                    <th>Beställ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products|filter:test|filter:filters">
+                    <td>
+                        <div><img src="{{product.imageUrl}}" class="thumbnail" height="100" width="100"></div>
+                    </td>
+                    <td>{{product.name}}<br><br><button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#demo{{ $index + 1 }}">Beskrivning</button>
+                        <div id="demo{{ $index + 1 }}" class="collapse">
+                             {{product.description}}
+                        </div>
+                    </td>
+                    <td>{{product.price | currency:"SEK"}}</td>
+                    <td><span ng-show="product.unitsInStock>0">{{product.unitsInStock}}</span><span ng-show="product.unitsInStock==0">Varan är slut i lager!</span></td>
+                    <td align="center">
+                        <input type="number" min="1" max="20" step="1" value="1" style="width:90px;margin-bottom:10px;margin-top:20px;" ng-model="product.quantity">
+                        <button id="btnSubmit" type="button" class="btn btn-default btn-sm" data-dismiss="alert" ng-click="addProductToCart(product);notifyOrder(product.name)"
+                            ng-disabled="product.unitsInStock==0">
+                            <span id="cart" class="glyphicon glyphicon-shopping-cart"></span>Kundvagn</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-xs-6 col-sm-3" style="top: 65px;">
+        <div class="list-group">
+            <a href="#" class="list-group-item active" style="background-color: lightslategrey;color:black;height: 40px;font-weight: bold;">Kategorier</a>
+            <a href="#" class="list-group-item" ng-click="filters.categoryId ='';setProductName('Alla produkter')">Alla kategorier</a>
+            <a href="#" class="list-group-item" ng-repeat="product in products | unique:'categoryName'" ng-click="filters.categoryId = product.categoryId;setProductName(product.categoryName)">{{product.categoryName}}</a>
+        </div>
+    </div>
+</div>
+<!--/.col-xs-12.col-sm-9-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+    <h2>Produkter i vårt sortiment<a href="/order"><button type="button" class="btn btn-success" style="float: right;">Till kassan >></button></a></h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr id="bhead">
+                <th>Produkt</th>
+                <th>Namn och beskrivning</th>
+                <th>Pris</th>
+                <th>Antal i lager</th>
+                <th>Beställ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in products|filter:test">
+                <td><img ng-src="{{product.imageUrl}}"></td>
+                <td data-toggle="tooltip" title="{{product.description}}">{{product.name}}<br></td>
+                <td>{{product.price | currency:"SEK"}}</td>
+                <td><span ng-show="product.unitsInStock>0">{{product.unitsInStock}}</span><span ng-show="product.unitsInStock==0">Varan är slut i lager!</span></td>
+                <td align="center">
+                    <input type="number" min="1" max="20" step="1" value="1" style="width:90px;margin-bottom:10px;margin-top:20px;" ng-model="product.quantity">
+                    <button id="btnSubmit" type="button" class="btn btn-default btn-sm" data-dismiss="alert" ng-click="addProductToCart(product)"
+                        ng-disabled="product.unitsInStock==0">
+                        <span id="cart" class="glyphicon glyphicon-shopping-cart"></span>Kundvagn</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->

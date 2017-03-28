@@ -1,0 +1,20 @@
+<div class="row" style="margin-top: 15px;">
+    <div class="col-md-9 ">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr id="bhead">
+                    <th>Order lagd</th>
+                    <th>Total summa</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="order in orders" ng-click="orderClicked(order.id)">
+                    <td>{{order.dateTime|date:'yyyy-MM-dd'}}</td>
+                    <td>{{order.products.sumPerOrder|currency:'SEK'}}</td>
+                    <td>Skickad</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

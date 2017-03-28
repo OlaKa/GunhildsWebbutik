@@ -1,0 +1,1 @@
+angular.module("app",["ui.bootstrap","ngRoute","login","product","category","customer", "angular.filter","order","mainCtrl","angularNotify"]);
