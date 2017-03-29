@@ -14,7 +14,7 @@ angular.module("customer")
                     .then(function (response) {
                         errorMessage = "";
                     }, function (error) {
-                        if (error.status == 400) {
+                        if (error.status == 400 || error.status== -1) {
                             errorMessage = 'Bad Request';
                         }
                     });
